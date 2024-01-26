@@ -1,0 +1,20 @@
+List of paramters and configuration
+
+params <- list(
+  objective = "reg:squarederror",
+  eta = 0.0001,
+  # nthread = 8,
+  eval_metric = "mae",
+  max_depth = 2,
+  alpha = 1,
+  lambda = 0)
+
+cv_results <-  xgb.cv(
+  params = params,
+  data = dtrain,
+  nrounds = 120000,  # Number of boosting rounds / iterations
+  nfold = 5,    # Number of folds
+  stratified = TRUE,
+  early_stopping_rounds = 10,
+  verbose = TRUE
+)

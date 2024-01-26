@@ -1,0 +1,31 @@
+set.seed(1)
+params <- list(
+  objective = "reg:squarederror",
+  eta = 0.01,
+  booster = "dart",
+  # nthread = 8,
+  eval_metric = "mae",
+  max_depth = 10,
+  alpha = 0,
+  lambda = 0,
+  colsample_bytree = 0.8,
+  subsample = 0.8)
+
+early_stopping_round <- 50
+
+tic()
+
+cv_results <-  xgb.cv(
+  params = params,
+  data = dtrain,
+  nrounds = 100000,  # Number of boosting rounds / iterations
+  nfold = 5,    # Number of folds
+  stratified = TRUE,
+  early_stopping_rounds = early_stopping_round,
+  verbose = TRUE
+)
+
+(train_elapsed <- toc())
+
+
+MAE: 190,780.0
