@@ -29,9 +29,12 @@ The factors variables are converted to one-hot encoded for the purpose of modeli
 
 The images below show the table of the actual price, predicted price and the percent difference. The highest percent difference is 1.522% and the lowest is 0.0001%.
 
-![](./images/df_head.png)
+![](./images/quantile.png)
 
+![](./images/df_head.png)
 ![](./images/df_tail.png)
+
+![](./images/gg_diff.png)
 
 
 
