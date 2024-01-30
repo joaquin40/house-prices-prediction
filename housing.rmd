@@ -194,9 +194,24 @@ metric
 
 
 df_actual_pred <- data.frame(exp(test$price), exp(pred_xgboost))
+
 colnames(df_actual_pred) <- c("Acutal price", "Prediction Price")
 
 head(df_actual_pred)
+
+
+df_actual_pred |> 
+  mutate(`Percent Difference` = (abs(`Acutal price` - `Prediction Price`) / `Acutal price` )* 100) |> 
+  mutate( percent_diff_num = round(`Percent Difference`, 4) ,
+          `Percent Difference` = 
+           round(`Percent Difference`, 4) |> 
+           as.character() |> 
+           paste0("%")
+           ) |> 
+  arrange(desc(percent_diff_num)) |> 
+  select(-percent_diff_num) |> 
+  head()
+
 
 ```
 

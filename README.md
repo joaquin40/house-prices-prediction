@@ -27,9 +27,11 @@ The distribution of the `price` is below. The left distribution is right skewed,
 The factors variables are converted to one-hot encoded for the purpose of modeling. There is 70%/30% split in the data and 5-fold cross validation is performed to determine the optimal mode.The Extreme Gradient Boosting (XGBOOST) is determine to be a good model to predict the price of a house. On average the XGBOOST is off about is $8,314.45 (Mean Absolute Error) which is is not to bad when considering the prices of the houses in these data set are in millions.
 
 
-The images below show the table of the first 6 observation of the actual price and predicted price.
+The images below show the table of the actual price, predicted price and the percent difference. The highest percent difference is 1.522% and the lowest is 0.0001%.
 
 ![](./images/df_head.png)
+
+![](./images/df_tail.png)
 
 
 
